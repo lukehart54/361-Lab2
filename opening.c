@@ -4,18 +4,24 @@
 
 // Create the object of the closed state.
 state_t opening = {
-    default_event_handler, // close_button_pressed
+    close_button_pressed,   // close_button_pressed
     default_event_handler, // closed_detected
-    close_button,           // close button
-    default_event_handler, // opened_detected
+    default_event_handler, // open button
+    opened_detected,        // opened_detected
     entry_to_opening,       // entry_to
     exit_from_opening       // exit_from
 };
 
-state_t *close_button()
+state_t *close_button_pressed()
 {
     exit_from_opening();
     return &closing;
+}
+
+state_t *opened_detected()
+{
+    exit_from_opening();
+    return &opened;
 }
 
 void entry_to_opening()

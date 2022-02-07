@@ -19,27 +19,34 @@ int main(void)
 		switch (key)
 		{
 		case 'c':
-			current_event = CLOSE_BUTTON_PRESSED;
 			puts("Event: CLOSE_BUTTON_PRESSED");
+			current_event = CLOSE_BUTTON_PRESSED;
+			// handle_event(current_event);
 			break;
 		case 'C':
+			puts("Event: CLOSED_DETECTED");
 			current_event = CLOSED_DETECTED;
-			puts("Event: CLOSE_DETECTED");
+			// handle_event(current_event);
 			break;
 		case 'o':
-			current_event = OPEN_BUTTON_PRESSED;
 			puts("Event: OPEN_BUTTON_PRESSED");
+			current_event = OPEN_BUTTON_PRESSED;
+			// handle_event(current_event);
 			break;
 		case 'O':
-			current_event = OPENED_DETECTED;
 			puts("Event: OPENED_DETECTED");
-			break;
-		case 'x':
+			current_event = OPENED_DETECTED;
+			// handle_event(current_event);
 			break;
 		default:
-			if (key != '\n') {
+			if (key != '\n')
+			{
 				puts("Event: INVALID_EVENT");
 			}
 		}
+		if (current_event != INVALID_EVENT) {
+			handle_event(current_event);
+		}
 	}
+	puts("\n");
 }

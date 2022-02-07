@@ -42,7 +42,7 @@ void printStateName(void)
     else if ( current_state == &closing )
         printf( "CLOSING" );
     else if ( current_state == &opened )
-            printf( "OPENED" );
+        printf( "OPENED" );
     else if ( current_state == &opening )
             printf( "OPENING" );
     printf("\n*****************\n");
